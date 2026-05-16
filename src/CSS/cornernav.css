@@ -1,0 +1,588 @@
+:root {
+    --logo-green: #007a33;
+    --logo-green-dark: #005f28;
+    --menu-black: #111;
+    --menu-white: #fff;
+}
+
+@property --center {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 62px;
+}
+
+@property --home {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 175px;
+}
+
+@property --contact {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 288px;
+}
+
+@property --about {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 401px;
+}
+
+@property --services {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 514px;
+}
+
+.corner-nav {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+/* ============================= */
+/* DESKTOP RADIAL MENU */
+/* ============================= */
+
+.corner-menu {
+    --center: 62px;
+    --home: 175px;
+    --contact: 288px;
+    --about: 401px;
+    --services: 514px;
+
+    position: fixed;
+    left: 24px;
+    top: calc(100vh - 108px);
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--logo-green);
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.35);
+    pointer-events: auto;
+
+    transition:
+            width 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+            height 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+            left 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+            top 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+            transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+            --center 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+            --home 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+            --contact 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+            --about 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+            --services 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.corner-nav.open .corner-menu {
+    width: 1260px;
+    height: 1260px;
+    left: 50vw;
+    top: 94vh;
+    transform: translate(-50%, -50%);
+
+    background:
+            radial-gradient(
+                    circle at center,
+                    var(--logo-green) 0 var(--center),
+                    var(--menu-white) calc(var(--center) + 1px) var(--home),
+                    var(--logo-green) calc(var(--home) + 1px) var(--contact),
+                    var(--menu-white) calc(var(--contact) + 1px) var(--about),
+                    var(--logo-green) calc(var(--about) + 1px) var(--services),
+                    var(--menu-white) calc(var(--services) + 1px) 100%
+            );
+}
+
+/* Smooth desktop ring hover expansion */
+.corner-nav.open .corner-menu:has(.nav-home:hover) {
+    --center: 44px;
+    --home: 220px;
+    --contact: 300px;
+    --about: 410px;
+    --services: 520px;
+}
+
+.corner-nav.open .corner-menu:has(.nav-contact:hover) {
+    --center: 62px;
+    --home: 140px;
+    --contact: 330px;
+    --about: 410px;
+    --services: 520px;
+}
+
+.corner-nav.open .corner-menu:has(.nav-about:hover) {
+    --center: 62px;
+    --home: 175px;
+    --contact: 250px;
+    --about: 445px;
+    --services: 525px;
+}
+
+.corner-nav.open .corner-menu:has(.nav-services:hover) {
+    --center: 62px;
+    --home: 175px;
+    --contact: 288px;
+    --about: 360px;
+    --services: 565px;
+}
+
+.corner-nav.open .corner-menu:has(.nav-quote:hover) {
+    --center: 62px;
+    --home: 175px;
+    --contact: 288px;
+    --about: 401px;
+    --services: 460px;
+}
+
+/* Desktop trigger button */
+.corner-trigger {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 84px;
+    height: 84px;
+    border: 3px solid var(--logo-green);
+    border-radius: 50%;
+    background: var(--logo-green);
+    color: var(--menu-white);
+    cursor: pointer;
+    z-index: 50;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    transition:
+            left 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+            top 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+            width 0.35s ease,
+            height 0.35s ease,
+            transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+            background 0.35s ease,
+            border-color 0.35s ease;
+}
+
+.corner-trigger:hover,
+.corner-trigger:focus,
+.corner-trigger:active {
+    background: var(--logo-green-dark);
+    border-color: var(--logo-green-dark);
+    outline: none;
+}
+
+.corner-nav.open .corner-trigger {
+    left: 50%;
+    top: 50%;
+    width: 72px;
+    height: 72px;
+    transform: translate(-50%, -50%);
+    background: var(--logo-green);
+    border-color: var(--logo-green);
+}
+
+.wrench-icon {
+    color: var(--menu-white);
+    font-size: 27px;
+    line-height: 1;
+    transition: opacity 0.2s ease;
+}
+
+.menu-text {
+    color: var(--menu-white);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    transition: opacity 0.2s ease;
+}
+
+.corner-nav.open .wrench-icon,
+.corner-nav.open .menu-text {
+    opacity: 0;
+}
+
+/* X icon */
+.corner-trigger::before,
+.corner-trigger::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 4px;
+    border-radius: 999px;
+    background: var(--menu-white);
+    opacity: 0;
+
+    transition:
+            opacity 0.25s ease,
+            transform 0.35s ease;
+}
+
+.corner-trigger::before {
+    transform: rotate(45deg) scale(0.5);
+}
+
+.corner-trigger::after {
+    transform: rotate(-45deg) scale(0.5);
+}
+
+.corner-nav.open .corner-trigger::before {
+    opacity: 1;
+    transform: rotate(45deg) scale(1);
+}
+
+.corner-nav.open .corner-trigger::after {
+    opacity: 1;
+    transform: rotate(-45deg) scale(1);
+}
+
+/* Desktop radial words */
+.corner-link {
+    position: absolute;
+    left: 50%;
+    z-index: 40;
+    text-decoration: none;
+    font-weight: 900;
+    letter-spacing: 1px;
+    line-height: 1;
+    white-space: nowrap;
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.85);
+
+    transition:
+            opacity 0.35s ease,
+            transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+            top 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.corner-nav.open .corner-link {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.corner-link span {
+    display: block;
+    font-size: 34px;
+
+    transition:
+            font-size 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+            letter-spacing 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+            transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.corner-link:hover span {
+    font-size: 46px;
+    letter-spacing: 1.7px;
+    transform: scale(1.05);
+}
+
+/* Desktop label positions */
+.nav-home {
+    top: calc(50% - 119px);
+    color: var(--menu-black);
+    transition-delay: 0.05s;
+}
+
+.nav-contact {
+    top: calc(50% - 232px);
+    color: var(--menu-white);
+    transition-delay: 0.1s;
+}
+
+.nav-about {
+    top: calc(50% - 345px);
+    color: var(--menu-black);
+    transition-delay: 0.15s;
+}
+
+.nav-services {
+    top: calc(50% - 458px);
+    color: var(--menu-white);
+    transition-delay: 0.2s;
+}
+
+.nav-quote {
+    top: calc(50% - 572px);
+    color: var(--menu-black);
+    transition-delay: 0.25s;
+}
+
+/* Small push when rings grow */
+.corner-menu:has(.nav-home:hover) .nav-home {
+    top: calc(50% - 122px);
+}
+
+.corner-menu:has(.nav-home:hover) .nav-contact {
+    top: calc(50% - 245px);
+}
+
+.corner-menu:has(.nav-contact:hover) .nav-home {
+    top: calc(50% - 100px);
+}
+
+.corner-menu:has(.nav-contact:hover) .nav-contact {
+    top: calc(50% - 235px);
+}
+
+.corner-menu:has(.nav-contact:hover) .nav-about {
+    top: calc(50% - 360px);
+}
+
+.corner-menu:has(.nav-about:hover) .nav-contact {
+    top: calc(50% - 210px);
+}
+
+.corner-menu:has(.nav-about:hover) .nav-about {
+    top: calc(50% - 350px);
+}
+
+.corner-menu:has(.nav-about:hover) .nav-services {
+    top: calc(50% - 475px);
+}
+
+.corner-menu:has(.nav-services:hover) .nav-about {
+    top: calc(50% - 315px);
+}
+
+.corner-menu:has(.nav-services:hover) .nav-services {
+    top: calc(50% - 463px);
+}
+
+.corner-menu:has(.nav-services:hover) .nav-quote {
+    top: calc(50% - 590px);
+}
+
+.corner-menu:has(.nav-quote:hover) .nav-services {
+    top: calc(50% - 430px);
+}
+
+.corner-menu:has(.nav-quote:hover) .nav-quote {
+    top: calc(50% - 565px);
+}
+
+/* Hide desktop labels while closed */
+.corner-nav:not(.open) .corner-link {
+    display: none;
+}
+
+/* Mobile elements hidden by default on desktop */
+.mobile-menu-button,
+.mobile-menu-sheet {
+    display: none;
+}
+
+/* ============================= */
+/* MOBILE BOTTOM SHEET MENU */
+/* ============================= */
+
+.phone-nav-button,
+.phone-nav-sheet {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .desktop-radial-menu {
+        display: none !important;
+    }
+
+    .corner-nav {
+        position: fixed !important;
+        inset: 0 !important;
+        z-index: 9999999 !important;
+        pointer-events: none !important;
+    }
+
+    .phone-nav-button {
+        display: flex !important;
+        position: fixed !important;
+
+        left: auto !important;
+        right: 10px !important;
+        top: 15px !important;
+        bottom: auto !important;
+
+        width: 76px !important;
+        height: 76px !important;
+
+        border: 3px solid #007a33 !important;
+        border-radius: 50% !important;
+        background: #007a33 !important;
+        color: #fff !important;
+
+        z-index: 10000000 !important;
+        pointer-events: auto !important;
+        cursor: pointer !important;
+
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 3px !important;
+
+        font-family: inherit !important;
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45) !important;
+
+        transition:
+                opacity 0.25s ease,
+                transform 0.25s ease,
+                background 0.25s ease !important;
+    }
+
+    .phone-nav-button:hover {
+        background: #005f28 !important;
+        transform: scale(1.04) !important;
+    }
+
+    .phone-nav-icon {
+        display: block !important;
+        font-size: 25px !important;
+        line-height: 1 !important;
+        color: #fff !important;
+    }
+
+    .phone-nav-text {
+        display: block !important;
+        font-size: 10px !important;
+        font-weight: 900 !important;
+        letter-spacing: 1px !important;
+        color: #fff !important;
+    }
+
+    .corner-nav.open .phone-nav-button {
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+
+    .phone-nav-sheet {
+        display: block !important;
+        position: fixed !important;
+
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+
+        width: 100vw !important;
+        height: 52vh !important;
+
+        background:
+                radial-gradient(circle at top left, rgba(0, 122, 51, 0.25), transparent 48%),
+                #111 !important;
+
+        border-top: 4px solid #007a33 !important;
+        border-radius: 30px 30px 0 0 !important;
+        box-shadow: 0 -18px 50px rgba(0, 0, 0, 0.45) !important;
+
+        z-index: 9999999 !important;
+        pointer-events: auto !important;
+
+        transform: translateY(110%) !important;
+        opacity: 0 !important;
+
+        transition:
+                transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.3s ease !important;
+    }
+
+    .corner-nav.open .phone-nav-sheet {
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+    }
+
+    .phone-nav-close {
+        position: absolute !important;
+        right: 22px !important;
+        top: 20px !important;
+
+        width: 56px !important;
+        height: 56px !important;
+
+        border: none !important;
+        border-radius: 50% !important;
+        background: #007a33 !important;
+        color: #fff !important;
+
+        font-size: 38px !important;
+        line-height: 1 !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        cursor: pointer !important;
+    }
+
+    .phone-nav-grid {
+        height: 100% !important;
+        width: 100% !important;
+
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(120px, 1fr)) !important;
+        align-items: center !important;
+        justify-items: center !important;
+
+        gap: 20px 14px !important;
+        padding: 92px 34px 44px !important;
+        box-sizing: border-box !important;
+    }
+
+    .phone-nav-link {
+        color: #fff !important;
+        text-decoration: none !important;
+        text-align: center !important;
+
+        font-size: 32px !important;
+        font-weight: 900 !important;
+        letter-spacing: 1px !important;
+        line-height: 1 !important;
+
+        opacity: 0 !important;
+        transform: translateY(18px) !important;
+
+        transition:
+                opacity 0.35s ease,
+                transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                color 0.25s ease,
+                font-size 0.25s ease !important;
+    }
+
+    .corner-nav.open .phone-nav-link {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+
+    .phone-nav-link:hover {
+        color: #007a33 !important;
+        font-size: 38px !important;
+    }
+
+    .phone-nav-link:nth-child(5) {
+        grid-column: 1 / -1 !important;
+    }
+
+    .corner-nav.open .phone-nav-link:nth-child(1) {
+        transition-delay: 0.06s !important;
+    }
+
+    .corner-nav.open .phone-nav-link:nth-child(2) {
+        transition-delay: 0.11s !important;
+    }
+
+    .corner-nav.open .phone-nav-link:nth-child(3) {
+        transition-delay: 0.16s !important;
+    }
+
+    .corner-nav.open .phone-nav-link:nth-child(4) {
+        transition-delay: 0.21s !important;
+    }
+
+    .corner-nav.open .phone-nav-link:nth-child(5) {
+        transition-delay: 0.26s !important;
+    }
+}

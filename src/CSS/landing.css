@@ -1,0 +1,444 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+.landing-page {
+    width: 100%;
+    min-height: 100vh;
+    background: #f8f7f2;
+    color: #111;
+    overflow-x: hidden;
+}
+
+.landing-main {
+    width: 100%;
+    min-height: calc(100vh - 150px);
+    display: grid;
+    grid-template-columns: 46% 54%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+}
+
+.landing-left {
+    min-height: calc(100vh - 150px);
+    padding: 52px 46px 54px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.brand-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.brand-logo {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+}
+
+.brand-name {
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    color: #07441d;
+}
+
+.hero-content {
+    margin-top: auto;
+    padding-bottom: 34px;
+}
+
+.hero-content h1 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(3.2rem, 4.8vw, 5.8rem);
+    line-height: 1.02;
+    letter-spacing: -0.06em;
+    font-weight: 400;
+    color: #111;
+}
+
+.hero-copy-subtext {
+    margin: 48px 0 0;
+    font-size: clamp(1.05rem, 1.35vw, 1.35rem);
+    line-height: 1.48;
+    color: #5e6269;
+    font-weight: 400;
+}
+
+.hero-actions {
+    margin-top: 52px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    max-width: 315px;
+}
+
+.hero-btn {
+    width: 100%;
+    min-height: 62px;
+    border-radius: 999px;
+    padding: 0 16px 0 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.primary-btn {
+    border: 2px solid #111;
+    background: #151515;
+    color: #fff;
+}
+
+.secondary-btn {
+    border: 2px solid #111;
+    background: transparent;
+    color: #111;
+}
+
+.btn-arrow {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 1.7rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.primary-btn .btn-arrow {
+    background: #f8f7f2;
+    color: #111;
+}
+
+.secondary-btn .btn-arrow {
+    border: 2px solid #111;
+    color: #111;
+    background: transparent;
+}
+
+.hero-btn:hover {
+    transform: translateY(-2px);
+}
+
+.landing-right {
+    position: relative;
+    min-height: calc(100vh - 150px);
+    overflow: hidden;
+}
+
+.hero-shop-img {
+    width: 100%;
+    height: 100%;
+    min-height: calc(100vh - 150px);
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+.mobile-image-overlay {
+    display: none;
+}
+
+.landing-info-row {
+    width: 100%;
+    min-height: 150px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: #f8f7f2;
+}
+
+.info-box {
+    min-height: 150px;
+    border-right: 1px solid rgba(0, 0, 0, 0.22);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: #111;
+}
+
+.info-box:last-child {
+    border-right: none;
+}
+
+.info-icon {
+    font-size: 2.1rem;
+    line-height: 1;
+}
+
+/* TABLET */
+
+@media (max-width: 980px) {
+    .landing-main {
+        grid-template-columns: 1fr;
+    }
+
+    .landing-left {
+        min-height: auto;
+        padding: 46px 32px 44px;
+        gap: 90px;
+    }
+
+    .landing-right {
+        min-height: 560px;
+    }
+
+    .hero-shop-img {
+        min-height: 560px;
+    }
+
+    .landing-info-row {
+        grid-template-columns: 1fr;
+    }
+
+    .info-box {
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+    }
+
+    .info-box:last-child {
+        border-bottom: none;
+    }
+}
+
+/* PHONE */
+
+@media (max-width: 620px) {
+    .landing-page {
+        background: #f8f7f2;
+    }
+
+    .landing-main {
+        display: flex;
+        flex-direction: column;
+        min-height: auto;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+    }
+
+    .landing-left {
+        min-height: auto;
+        padding: 34px 22px 24px;
+        gap: 52px;
+    }
+
+    .brand-row {
+        gap: 12px;
+    }
+
+    .brand-logo {
+        width: 56px;
+        height: 56px;
+    }
+
+    .brand-name {
+        font-size: 0.78rem;
+        letter-spacing: 0.06em;
+    }
+
+    .hero-content {
+        padding-bottom: 0;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(3.05rem, 15vw, 4.5rem);
+        line-height: 0.95;
+        letter-spacing: -0.065em;
+    }
+
+    .hero-copy-subtext,
+    .desktop-hero-actions {
+        display: none;
+    }
+
+    .landing-right {
+        position: relative;
+        width: 100%;
+        height: 345px;
+        min-height: 345px;
+        overflow: hidden;
+        background: #111;
+    }
+
+    .hero-shop-img {
+        width: 100%;
+        height: 345px;
+        min-height: 345px;
+        object-fit: cover;
+        object-position: center bottom;
+        display: block;
+    }
+
+    .landing-right::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.02) 0%,
+                rgba(0, 0, 0, 0.12) 42%,
+                rgba(0, 0, 0, 0.5) 100%
+        );
+        pointer-events: none;
+    }
+
+    .mobile-image-overlay {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+        z-index: 5;
+        color: #fff;
+    }
+
+    .mobile-image-overlay p {
+        margin: 0;
+        color: #fff;
+        font-size: 0.76rem;
+        line-height: 1.35;
+        font-weight: 700;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+    }
+
+    .mobile-hero-actions {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        max-width: none;
+        width: 100%;
+    }
+
+    .mobile-hero-actions .hero-btn {
+        width: 100%;
+        min-height: 44px;
+        padding: 0 9px 0 15px;
+        border-radius: 999px;
+        justify-content: space-between;
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-decoration: none;
+    }
+
+    .mobile-hero-actions .btn-arrow {
+        width: 30px;
+        height: 30px;
+        font-size: 1.05rem;
+    }
+
+    .mobile-hero-actions .primary-btn {
+        border: 2px solid #111;
+        background: #151515;
+        color: #fff;
+    }
+
+    .mobile-hero-actions .secondary-btn {
+        border: 2px solid #111;
+        background: rgba(248, 247, 242, 0.92);
+        color: #111;
+    }
+
+    .mobile-hero-actions .primary-btn .btn-arrow {
+        background: #f8f7f2;
+        color: #111;
+    }
+
+    .mobile-hero-actions .secondary-btn .btn-arrow {
+        border: 2px solid #111;
+        color: #111;
+        background: transparent;
+    }
+
+    .landing-info-row {
+        min-height: auto;
+        grid-template-columns: 1fr;
+    }
+
+    .info-box {
+        min-height: 92px;
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+        justify-content: flex-start;
+        padding-left: 32px;
+        font-size: 1rem;
+    }
+
+    .info-box:last-child {
+        border-bottom: none;
+    }
+
+    .info-icon {
+        font-size: 1.8rem;
+    }
+}
+
+/* SMALL PHONES */
+
+@media (max-width: 430px) {
+    .landing-left {
+        padding: 30px 18px 22px;
+        gap: 44px;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(2.85rem, 15vw, 4rem);
+    }
+
+    .landing-right {
+        height: 330px;
+        min-height: 330px;
+    }
+
+    .hero-shop-img {
+        height: 330px;
+        min-height: 330px;
+    }
+
+    .mobile-image-overlay {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+    }
+
+    .mobile-image-overlay p {
+        font-size: 0.72rem;
+    }
+
+    .mobile-hero-actions {
+        margin-top: 8px;
+        gap: 7px;
+    }
+
+    .mobile-hero-actions .hero-btn {
+        min-height: 42px;
+        padding-left: 14px;
+        padding-right: 8px;
+        font-size: 0.74rem;
+    }
+
+    .mobile-hero-actions .btn-arrow {
+        width: 28px;
+        height: 28px;
+        font-size: 1rem;
+    }
+}

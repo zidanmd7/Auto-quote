@@ -1,0 +1,263 @@
+/* =========================
+   HEADER BASE
+========================= */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 14px 28px;
+
+    background: rgba(10, 10, 15, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* LEFT */
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 1px;
+}
+
+/* CENTER NAV (optional for now) */
+.nav-menu {
+    display: flex;
+    gap: 18px;
+}
+
+/* RIGHT CTA */
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+/* =========================
+   QUOTE BUTTON (IMPORTANT)
+========================= */
+.quote-btn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 10px;
+
+    background: var(--primary-color, #1e90ff);
+    color: white;
+
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.quote-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    .header {
+        padding: 12px 16px;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .quote-btn {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* =========================
+   GLOBAL FONT
+========================= */
+* {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+/* =========================
+   FOOTER WRAPPER
+========================= */
+.site-footer {
+    position: relative;
+    background-color: black;
+    color: #f8f7f2;
+
+    padding: 90px 60px 60px;
+    margin-top: 120px;
+}
+
+/* =========================
+   FOOTER CTA BAR
+========================= */
+.footer-cta {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: min(920px, calc(100% - 120px));
+
+    background: grey;
+    color: white;
+
+    box-shadow: 0 10px 30px rgba(87, 74, 36, 0.2);
+
+    padding: 22px 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-cta__text h3 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.footer-cta__text p {
+    margin: 6px 0 0;
+    opacity: 0.85;
+}
+
+/* CTA BUTTON */
+.footer-cta__btn {
+    background: var(--primary-color);
+    color: white;
+
+    text-decoration: none;
+
+    padding: 10px 18px;
+    border-radius: 4px;
+
+    font-weight: 600;
+}
+
+.footer-cta__btn:hover {
+    filter: brightness(1.1);
+}
+
+/* =========================
+   FOOTER GRID
+========================= */
+.footer-main {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr 1.2fr 1fr;
+    gap: 40px;
+
+    align-items: start;
+}
+
+/* COLUMN */
+.footer-col h4 {
+    margin: 0 0 14px;
+    font-size: 14px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: white;
+    opacity: 0.85;
+}
+
+.footer-col a {
+    display: block;
+    margin: 10px 0;
+
+    color: #f3eedf;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-col a:hover {
+    color: white;
+}
+
+/* LOGO TEXT */
+.footer-logo {
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: white;
+}
+
+.footer-copy {
+    margin-top: 8px;
+    font-size: 13px;
+    color: white;
+}
+
+/* =========================
+   SOCIAL
+========================= */
+.footer-social {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.social {
+    width: 34px;
+    height: 34px;
+
+    border-radius: 999px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: white;
+    color: black;
+
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+/* =========================
+   RESPONSIVE FOOTER
+========================= */
+@media (max-width: 900px) {
+    .site-footer {
+        padding: 110px 24px 50px;
+    }
+
+    .footer-cta {
+        width: calc(100% - 40px);
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 26px;
+    }
+}
+
+@media (max-width: 520px) {
+    .footer-main {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-cta {
+        flex-direction: column;
+        gap: 14px;
+        align-items: flex-start;
+    }
+}
