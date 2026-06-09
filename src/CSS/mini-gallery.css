@@ -1,0 +1,196 @@
+/* ── section ── */
+.mg {
+    font-family: sans-serif;
+    padding: 56px 24px 48px;
+    background: #fff;
+}
+
+/* ── header ── */
+.mg-head {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.mg-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #2ea850;
+    margin-bottom: 8px;
+}
+
+.mg-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+
+.mg-sub {
+    font-size: 14px;
+    color: #888;
+}
+
+/* ── grid ── */
+.mg-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ── individual item ── */
+.mg-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #0d2a1a;
+    aspect-ratio: 4 / 3;
+    cursor: pointer;
+}
+
+.mg-item--wide {
+    grid-column: span 2;
+    aspect-ratio: 16 / 9;
+}
+
+.mg-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+    user-select: none;
+}
+
+.mg-item:hover img {
+    transform: scale(1.04);
+}
+
+/* ── hover overlay ── */
+.mg-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.2s;
+    display: flex;
+    align-items: flex-end;
+}
+
+.mg-item:hover .mg-overlay {
+    background: rgba(0, 0, 0, 0.38);
+}
+
+.mg-info {
+    padding: 12px 14px;
+    transform: translateY(6px);
+    opacity: 0;
+    transition: opacity 0.2s, transform 0.2s;
+    width: 100%;
+}
+
+.mg-item:hover .mg-info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mg-tag {
+    display: inline-block;
+    background: #2ea850;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+
+.mg-info p {
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+}
+
+/* ── footer ── */
+.mg-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+}
+
+.mg-btn {
+    height: 44px;
+    padding: 0 32px;
+    background: #0d2a1a;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    letter-spacing: 0.01em;
+    transition: background 0.15s;
+}
+
+.mg-btn:hover {
+    background: #1a3d28;
+}
+
+.mg-btn:active {
+    transform: scale(0.98);
+}
+
+/* ── responsive ── */
+
+/* Tablet: 2 cols, wide item spans full width */
+@media (max-width: 720px) {
+    .mg-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mg-item--wide {
+        grid-column: span 2;
+    }
+
+    .mg-title {
+        font-size: 22px;
+    }
+}
+
+/* Mobile: single column, everything stacks */
+@media (max-width: 480px) {
+    .mg {
+        padding: 40px 16px 36px;
+    }
+
+    .mg-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .mg-item--wide {
+        grid-column: span 1;
+        aspect-ratio: 4 / 3;
+    }
+
+    .mg-title {
+        font-size: 20px;
+    }
+
+    /* always show labels on mobile since no hover */
+    .mg-info {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .mg-overlay {
+        background: rgba(0, 0, 0, 0.3);
+    }
+}
