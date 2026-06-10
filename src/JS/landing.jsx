@@ -1,6 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {BrowserRouter, Link, Routes} from "react-router-dom";
 import "../CSS/landing.css";
+import MiniGallery from "../Pages/mini-gallery";
 
 function Landing() {
     return (
@@ -30,13 +31,17 @@ function Landing() {
                         </p>
 
                         <div className="hero-actions desktop-hero-actions">
-                            <button className="hero-btn primary-btn">
+                            {/*<button className="hero-btn primary-btn">
                                 <span>Get a Quote</span>
                                 <span className="btn-arrow">→</span>
-                            </button>
+                            </button>*/}
+                            <Link to="/quote" className="hero-btn primary-btn">
+                                <span>Get a Quote</span>
+                                <span className="btn-arrow">→</span>
+                            </Link>
 
                             <Link to="/appointment" className="hero-btn secondary-btn">
-                                <span>make an appointment</span>
+                                <span>Make an appointment</span>
                                 <span className="btn-arrow">→</span>
                             </Link>
                         </div>
@@ -86,8 +91,11 @@ function Landing() {
                     <span className="info-icon">⚲</span>
                     <span>In your home</span>
                 </div>
+
             </div>
+            <MiniGallery />
         </section>
+
     );
 }
 

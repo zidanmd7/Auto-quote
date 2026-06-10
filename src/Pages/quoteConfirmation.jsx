@@ -1,4 +1,4 @@
-import "../CSS/QuoteConfirmation.css";
+import "../CSS/quoteConfirmation.css";
 
 const STEPS = [
     {

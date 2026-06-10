@@ -1,0 +1,305 @@
+/* ── page wrapper ── */
+.gq-page {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 32px 16px;
+}
+
+.gq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 80%;
+    max-width: 1100px;
+    min-height: 680px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e5e5e5;
+}
+
+/* ── shared panel base ── */
+.gq-left,
+.gq-right {
+    padding: 32px 28px;
+}
+
+/* ── LEFT ── */
+.gq-left {
+    background: #ffffff;
+    border-right: 1px solid #e5e5e5;
+}
+
+/* ── RIGHT (desktop only) ── */
+.gq-right {
+    background: #f7f7f5;
+    background-image:
+            radial-gradient(ellipse at 65% 25%, rgba(46, 168, 80, 0.13) 0%, transparent 60%),
+            radial-gradient(ellipse at 20% 80%, rgba(46, 168, 80, 0.08) 0%, transparent 50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gq-right-inner {
+    width: 100%;
+    max-width: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+/* ── mobile extra section (hidden on desktop) ── */
+.gq-mobile-extra {
+    display: none;
+}
+
+/* ── typography ── */
+.gq-panel-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.gq-sec-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin: 18px 0 8px;
+}
+
+/* ── layout helpers ── */
+.gq-row2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.gq-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+}
+
+/* ── inputs & selects ── */
+.gq-field input,
+.gq-field select {
+    height: 38px;
+    border: 1px solid #d4d4d4;
+    border-radius: 8px;
+    padding: 0 10px;
+    font-size: 13px;
+    color: #111;
+    background: #fff;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.gq-field input::placeholder {
+    color: #aaa;
+}
+
+.gq-field input:focus,
+.gq-field select:focus {
+    border-color: #2ea850;
+    box-shadow: 0 0 0 3px rgba(46, 168, 80, 0.1);
+}
+
+.gq-zip {
+    max-width: 140px;
+}
+
+/* ── radio options ── */
+.gq-radio-opt {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #111;
+    margin-bottom: 6px;
+    background: #fff;
+    transition: border-color 0.12s;
+    user-select: none;
+}
+
+.gq-radio-opt:hover {
+    border-color: #2ea850;
+}
+
+.gq-radio-opt input {
+    accent-color: #2ea850;
+    height: auto;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    width: auto;
+}
+
+/* ── upload zone ── */
+.gq-upload-zone {
+    width: 100%;
+    border: 1.5px dashed #c8c8c8;
+    border-radius: 12px;
+    padding: 36px 20px;
+    text-align: center;
+    background: #fff;
+    cursor: pointer;
+    transition: border-color 0.15s;
+}
+
+.gq-upload-zone:hover {
+    border-color: #2ea850;
+}
+
+.gq-upload-icon {
+    font-size: 32px;
+    color: #bbb;
+    margin-bottom: 8px;
+    line-height: 1;
+}
+
+.gq-upload-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 4px;
+}
+
+.gq-upload-sub {
+    font-size: 12px;
+    color: #999;
+}
+
+.gq-upload-sub span {
+    color: #2ea850;
+    font-weight: 600;
+}
+
+/* ── description textarea ── */
+.gq-desc {
+    width: 100%;
+    border: 1px solid #d4d4d4;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 13px;
+    color: #111;
+    background: #fff;
+    outline: none;
+    resize: vertical;
+    min-height: 90px;
+    font-family: inherit;
+    line-height: 1.5;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.gq-desc::placeholder {
+    color: #aaa;
+}
+
+.gq-desc:focus {
+    border-color: #2ea850;
+    box-shadow: 0 0 0 3px rgba(46, 168, 80, 0.1);
+}
+
+/* ── disclaimer ── */
+.gq-disclaimer {
+    font-size: 11px;
+    color: #999;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* ── CTA button ── */
+.gq-btn {
+    width: 100%;
+    height: 44px;
+    background: #2ea850;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    letter-spacing: 0.01em;
+    transition: background 0.15s;
+}
+
+.gq-btn:hover {
+    background: #259642;
+}
+
+.gq-btn:active {
+    transform: scale(0.98);
+}
+
+/* ── responsive ── */
+
+/* Tablet: collapse to single column, keep right panel visible */
+@media (max-width: 900px) {
+    .gq-grid {
+        width: 95%;
+        grid-template-columns: 1fr;
+    }
+
+    .gq-right {
+        border-top: 1px solid #e5e5e5;
+        border-right: none;
+        padding: 32px 28px;
+    }
+
+    .gq-left {
+        border-right: none;
+    }
+}
+
+/* Mobile: hide right panel, show inline section instead */
+@media (max-width: 600px) {
+    .gq-page {
+        padding: 16px 12px;
+    }
+
+    .gq-grid {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    .gq-left,
+    .gq-right {
+        padding: 24px 16px;
+    }
+
+    .gq-row2 {
+        grid-template-columns: 1fr;
+    }
+
+    .gq-zip {
+        max-width: 100%;
+    }
+
+    /* hide desktop right panel */
+    .gq-right {
+        display: none;
+    }
+
+    /* show inline mobile section */
+    .gq-mobile-extra {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 4px;
+    }
+
+    .gq-mobile-extra .gq-upload-zone {
+        padding: 24px 16px;
+    }
+}
