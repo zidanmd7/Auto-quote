@@ -6,11 +6,11 @@ function CornerNav() {
     const navRef = useRef(null);
 
     const navLinks = [
-        { name: "home", href: "#home", className: "nav-home" },
-        { name: "contact", href: "#contact", className: "nav-contact" },
-        { name: "about", href: "#about", className: "nav-about" },
-        { name: "services", href: "#services", className: "nav-services" },
-        { name: "quote", href: "#quote", className: "nav-quote" },
+        { name: "home", href: "/", className: "nav-home" },
+        { name: "contact", href: "/contact", className: "nav-contact" },
+        { name: "about", href: "/about", className: "nav-about" },
+        { name: "services", href: "/services", className: "nav-services" },
+        { name: "quote", href: "/quote", className: "nav-quote" },
     ];
 
     useEffect(() => {

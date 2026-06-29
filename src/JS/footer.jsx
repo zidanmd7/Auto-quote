@@ -8,8 +8,8 @@ function Footer() {
                 <div className="footer-brand">
                     <h2 className="footer-logo">Auto Repair</h2>
 
-                    <button className="footer-call-btn">
-                        Request a Call
+                    <button className="footer-call-btn" onClick={() => window.location.href = "/appointment"}>
+                        Book an Appointment
                     </button>
                 </div>
 
@@ -34,13 +34,13 @@ function Footer() {
                     <h4>FOLLOW US</h4>
 
                     <div className="footer-socials">
-                        <a href="#" aria-label="Facebook">
+                        <a href="https://www.facebook.com/themobileautobody" aria-label="Facebook">
                             <svg viewBox="0 0 24 24">
                                 <path d="M22 12.07C22 6.48 17.52 2 12 2S2 6.48 2 12.07C2 17.1 5.66 21.28 10.44 22v-7.03H7.9v-2.9h2.54V9.85c0-2.52 1.49-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.9h2.78l-.44 2.9h-2.34V22C18.34 21.28 22 17.1 22 12.07Z" />
                             </svg>
                         </a>
 
-                        <a href="#" aria-label="Instagram">
+                        <a href="https://www.instagram.com/themobilebodyshop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Instagram">
                             <svg viewBox="0 0 24 24">
                                 <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7Zm5 3A4.8 4.8 0 1 1 12 16.8 4.8 4.8 0 0 1 12 7.2Zm0 2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2Zm5.05-2.65a1.05 1.05 0 1 1-1.05 1.05 1.05 1.05 0 0 1 1.05-1.05Z" />
                             </svg>
@@ -56,7 +56,7 @@ function Footer() {
             </div>
 
             <p className="footer-bottom">
-                © YEAR AND COMPANY NAME. All Rights Reserved.
+                © 2016. ThemobilebodyshopLLC. All Rights Reserved.
             </p>
         </footer>
     );
